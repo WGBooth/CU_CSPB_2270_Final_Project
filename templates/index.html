@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Screenplay Character Radix Trie</title>
+  </head>
+  <body>
+    <header>
+        <h1>Character Search</h1>
+    </header>
+    <main>
+        <input type="text" id="search_input" class="form-control" placeholder="Search..."/>
+        <ul id="search_results" class="list-group mt-2"></ul>
+    </main>
+    <script>
+        // I added the DOMContentLoaded event listener to ensure that the script runs after the document has been loaded.
+        // I was getting an error but I think it was something else. This was part of that trouble shooting.
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            let search_input = document.getElementById('search_input');
+            let search_results = document.getElementById('search_results');
+
+            search_input.addEventListener('keyup', function()
+            {
+                let possible_name = search_input.value.toUpperCase();
+
+                if (possible_name !== '') 
+                {
+                    // https://flask.palletsprojects.com/en/2.3.x/patterns/javascript/#rendering-templates
+                    fetch('/autocomplete', {
+                        method: 'POST',
+                        //
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        // turns into JSON object
+                        body: JSON.stringify({possible_name: possible_name})
+                    })
+                    // promises to return the response as text
+                    .then(response => response.text())
+                    // renders the HTML list of autocomplete results
+                    .then(data => {
+                        search_results.innerHTML = data;
+                    });
+                } 
+                else 
+                {
+                    search_results.innerHTML = '';
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
