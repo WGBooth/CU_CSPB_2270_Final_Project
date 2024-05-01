@@ -1,11 +1,3 @@
-The README file should have the following:
-
-project data structure implemented
-short explanation of the data structure
-If your project is something I can run, please give instructions on how to do that
-If your project isn't something that I can run, show me what it does. You can take a video and upload it to YouTube or Vimeo or simply to a private Google drive link. Or if video isn't your thing, a document with screenshots and words explaining what's going on.
-The main goal is to communicate clearly what you did and why.
-
 # Storing Parsed Characters from Screenplays into a Radix Trie
 
 This project parses the character names (with speaking roles) from a bundle of screenplays and organizes those into a radix trie which can be searched using an autocomplete text field in the provided web frontend.
@@ -18,7 +10,25 @@ Insert the diagram generated:
 
 ## Running the Project
 
-I'd recommend making a virtual environment for this to run in. I used Python 3.11.5 and venv.
+I'm providing the instructions for a Mac (because that's what I'm using) but these are adaptable to whatever system you use.
+
+I'd recommend making a virtual environment for this to run in. I used venv.
+
+In a Terminal, run python -m venv .venv
+
+Then type source .venv/bin/activate so that the virtual activate will run Python
+
+Make sure pip is install: python -m pip install
+
+There is a requirements.txt file that can be used to install the 3rd party Python packages to run this project. Now install necessary packages from requirements.txt
+pip install -r requirements.txt
+
+Now run the application:
+flask --app app.py run
+
+In the console, you will see which screenplay is being parsed and then eventually that a development server has been launched and is running. Open up a browser with the following address: 127.0.0.1:5000
+
+Type in the letter "r" (case-insensitive). You'll see a bulleted-list of characters (and their respective screenplay) listed below the text area. Now type the letter "e". You will see the search result narrow to results that match the prefix.
 
 ## Why this Project
 
