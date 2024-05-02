@@ -6,7 +6,8 @@ This project parses the character names (with speaking roles) from a bundle of s
 
 A radix trie is a tree data structure that compresses strings by having shared parent nodes with the same prefix then concatenating it with children nodes until a leaf is reached, or more simply, a complete word is formed. The benefit of this structure is in reducing the space needed to store a large collection of data, such as IP addresses or words in a dictionary.
 
-Insert the diagram generated:
+Here is a graphical representation of what the trie looks like.
+![](media/radix_trie_diagram.png)
 
 ## Running the Project
 
