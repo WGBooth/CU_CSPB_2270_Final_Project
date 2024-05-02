@@ -10,6 +10,8 @@ Insert the diagram generated:
 
 ## Running the Project
 
+![](media/radix_trie_demo.gif)
+
 I'm providing the instructions for a Mac (because that's what I'm using) but these are adaptable to whatever system you use.
 
 I'd recommend making a virtual environment for this to run in. I used venv.
@@ -18,10 +20,9 @@ In a Terminal, run python -m venv .venv
 
 Then type source .venv/bin/activate so that the virtual activate will run Python
 
-Make sure pip is install: python -m pip install
+Make sure pip is installed. The requirements.txt contains the 3rd party packages required run the following line:
 
-There is a requirements.txt file that can be used to install the 3rd party Python packages to run this project. Now install necessary packages from requirements.txt
-pip install -r requirements.txt
+python -m pip install -r requirements.txt --upgrade pip
 
 Now run the application:
 flask --app app.py run
@@ -29,6 +30,8 @@ flask --app app.py run
 In the console, you will see which screenplay is being parsed and then eventually that a development server has been launched and is running. Open up a browser with the following address: 127.0.0.1:5000
 
 Type in the letter "r" (case-insensitive). You'll see a bulleted-list of characters (and their respective screenplay) listed below the text area. Now type the letter "e". You will see the search result narrow to results that match the prefix.
+
+A word of caution: Make sure you are running the Python3 from the virtual environment. I had an issue with Anaconda alias preventing the virtual environment's Python from running.
 
 ## Why this Project
 
